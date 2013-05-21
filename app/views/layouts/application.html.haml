@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Tomato
+    = stylesheet_link_tag "application", :media => "all"
+    = csrf_meta_tags
+    %style{:type => "text/css"}
+      body { padding-top: 60px; }
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand POMODORO
+          .nav-collapse.collapse
+            .pull-right
+              - if current_user
+
+                = link_to logout_path, :class => [:btn, :"btn-info"] do
+                  = image_tag current_user.image, :size => "14x14"
+                  Logout
+              - else
+                = link_to "auth/github", :class => [:btn, :"btn-info"] do
+                  %i.icon-user
+                  Sign in
+    .container
+      = yield
+  = javascript_include_tag "application"
