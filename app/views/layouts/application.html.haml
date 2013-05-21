@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Tomato
+    %title YORIAI
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     %style{:type => "text/css"}
@@ -9,19 +9,14 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container
-          %a.brand POMODORO
-          .nav-collapse.collapse
-            .pull-right
-              - if current_user
-
-                = link_to logout_path, :class => [:btn, :"btn-info"] do
-                  = image_tag current_user.image, :size => "14x14"
-                  Logout
-              - else
-                = link_to "auth/github", :class => [:btn, :"btn-info"] do
-                  %i.icon-user
-                  Sign in
+        .container-fluid
+          = link_to "YORIAI", "#", class: :brand
+          .navbar-content
+            %ul.nav
+              %li.active
+                = link_to "MY", "#"
+              %li
+                = link_to "ALL TEAMS", "#"
     .container
       = yield
   = javascript_include_tag "application"
