@@ -32,4 +32,25 @@ describe User do
       end
     end
   end
+
+  describe "#create_with_omniauth" do
+    let(:auth) do
+      {
+        "uid" => "1234",
+        "info" => {
+          "name" => "name",
+          "nickname" => "nickname",
+          "image" => "image"
+        }
+      }
+    end
+
+    it "created user" do
+      expect { User.create_with_omniauth(auth) }.to change { User.count }.from(0).to(1)
+    end
+
+    it "returned user object" do
+      expect(User.create_with_omniauth(auth)).to be_instance_of User
+    end
+  end
 end
