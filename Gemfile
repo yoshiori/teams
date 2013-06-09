@@ -26,6 +26,7 @@ group :test, :development do
   gem 'growl', :require => false # for Mac
   gem 'libnotify', :require => false # for *nix
   gem 'pry-rails'
+  gem 'coveralls', :require => false
 end
 
 gem 'jquery-rails'
